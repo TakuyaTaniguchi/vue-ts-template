@@ -3,26 +3,26 @@
 </template>
 
 <script lang="ts">
-import { Component, Emit, Prop, Vue } from "vue-property-decorator";
+import { Component, Emit, Prop, Vue } from 'vue-property-decorator'
 
 @Component
 export default class ResetButton extends Vue {
-  private initialValue!: string;
+  private initialValue!: string
 
   @Prop()
-  public value!: string;
+  public value!: string
 
   /** ライフサイクルフック */
   public created() {
-    console.log(this.value);
-    this.initialValue = this.value;
+    console.dir(this)
+    this.initialValue = this.value
   }
 
   @Emit()
   public input(value: string) {}
 
   public onClick() {
-    this.input(this.initialValue);
+    this.input(this.initialValue)
   }
 }
 </script>

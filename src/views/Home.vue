@@ -12,24 +12,24 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import MyButton from "@/components/MyButton.vue";
-import ResetButton from "@/components/ResetButton.vue";
+import { Component, Vue } from 'vue-property-decorator'
+import MyButton from '@/components/MyButton.vue'
+import ResetButton from '@/components/ResetButton.vue'
 
 @Component({
   components: {
     ResetButton,
-    MyButton
-  }
+    MyButton,
+  },
 })
 export default class Home extends Vue {
-  private count: number = 0;
-  public greetText: string = "Hello";
+  private count: number = 0
+  public greetText: string = 'Hello'
 
   public onMyButtonClick(count: number) {
     // ← 引数で受け取る
-    this.count = count;
-    this.greetText = "こんにちは";
+    this.count = count
+    this.greetText = 'こんにちは'
   }
 }
 </script>
