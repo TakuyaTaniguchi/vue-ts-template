@@ -3,15 +3,19 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Emit, Prop, Vue } from "vue-property-decorator";
 
 @Component
 export default class MyButton extends Vue {
   @Prop()
   public greet?: string;
 
+  @Emit()
+  public clicked() {}
+
   public onClick() {
     alert(this.greet);
+    this.clicked();
   }
 }
 </script>
