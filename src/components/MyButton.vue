@@ -7,15 +7,19 @@ import { Component, Emit, Prop, Vue } from "vue-property-decorator";
 
 @Component
 export default class MyButton extends Vue {
+  private count: number = 0;
+
   @Prop()
   public greet?: string;
 
+  // 引数を追加しました
   @Emit()
-  public clicked() {}
+  public click(count: number) {}
 
   public onClick() {
     alert(this.greet);
-    this.clicked();
+    this.count++;
+    this.click(this.count);
   }
 }
 </script>

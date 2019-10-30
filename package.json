@@ -42,7 +42,17 @@
       "@vue/prettier",
       "@vue/typescript"
     ],
-    "rules": {},
+    "rules": {
+      "no-console": 0,
+      "prettier/prettier": [
+        "error",
+        {
+          "semi": false,
+          "trailingComma": "all",
+          "singleQuote": true
+        }
+      ]
+    },
     "parserOptions": {
       "parser": "@typescript-eslint/parser"
     }
