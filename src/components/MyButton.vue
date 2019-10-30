@@ -17,7 +17,6 @@ export default class MyButton extends Vue {
   public click(count: number) {}
 
   public onClick() {
-    alert(this.greet)
     this.count++
     this.click(this.count)
   }
