@@ -9,11 +9,16 @@
     <p>
       <ResetButton v-model="greetText"></ResetButton>
     </p>
+    <template>
+      <div>{{ Items }}</div>
+    </template>
+    <div @click="textClick">null:{{ text }}</div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Watch, Vue } from 'vue-property-decorator'
+import Vue from 'vue'
+import Component from 'vue-class-component'
 import MyButton from '@/components/MyButton.vue'
 import ResetButton from '@/components/ResetButton.vue'
 
@@ -22,18 +27,30 @@ import ResetButton from '@/components/ResetButton.vue'
     ResetButton,
     MyButton,
   },
+  watch: {
+    count: function() {
+      console.log('countをウォッチ')
+    },
+  },
 })
 export default class Home extends Vue {
   private count: number = 0
   private isRegulars: boolean = false
   public greetText: string = 'Hello'
 
-  @Watch('count')
+  private text = null as string | null
+
+  textClick() {
+    this.text = 'text'
+  }
   public countChanged() {
-    console.log('Watch')
     if (this.count === 5) {
       alert('常連になりました。')
     }
+  }
+
+  get Items() {
+    return [{ id: 100, name: 'Taro' }, { id: 101, name: 'Hanako' }]
   }
 
   public onMyButtonClick(count: number) {
